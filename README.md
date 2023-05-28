@@ -11,7 +11,7 @@ Python script used for scraping books content from legal source - [https://wolne
 1. Clone the repository
 
 ```bash
-git clone https://github.com/korekcjoner/book-scrapper
+git clone https://github.com/korekcjoner/book-scraper
 ```
 
 2. Install dependencies
