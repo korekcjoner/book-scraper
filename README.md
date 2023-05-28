@@ -38,10 +38,10 @@ vim .env
 python main.py
 ```
 
-6. Books are saved in `books` directory
+6. Books are saved in `{BOOKS_DIRNAME}` directory
 
 ```bash
-ls books
+ls `{BOOKS_DIRNAME}`
 ```
 
 ## License

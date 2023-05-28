@@ -31,7 +31,7 @@ DISCARD_LINES_THRESHOLD = int(os.environ.get('DISCARD_LINES_THRESHOLD', 300))
 # overwrite existing books
 SKIP_ALREADY_ADDED = os.environ.get('SKIP_ALREADY_ADDED', '1') == '1'
 # name of directory to save books in
-BOOKS_DIRNAME = os.environ.get('BOOKS_DIR', 'books')
+BOOKS_DIRNAME = os.environ.get('BOOKS_DIRNAME', 'books')
 
 
 # create directory for books
