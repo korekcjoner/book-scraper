@@ -95,7 +95,7 @@ def transform_content(content: str):
     content = '\n'.join([line[0].upper() + line[1:] for line in content.split('\n')])
 
     # remove lines that ends with words shorter than two characters (probably abbreviations)
-    content = '\n'.join([line for line in content.split('\n') if len(line.split(' ')[-1]) > 2])
+    content = '\n'.join([line for line in content.split('\n') if len(line.split(' ')[-1]) > 3])
 
     # remove lines that ends with word which contains dot not as end of sentence
     content = '\n'.join([line for line in content.split('\n') if '.' not in line.split(' ')[-1][:-1]])
