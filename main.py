@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup, ResultSet
 import string
 import logging
+import random
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -32,6 +33,8 @@ DISCARD_LINES_THRESHOLD = int(os.environ.get('DISCARD_LINES_THRESHOLD', 300))
 SKIP_ALREADY_ADDED = os.environ.get('SKIP_ALREADY_ADDED', '1') == '1'
 # name of directory to save books in
 BOOKS_DIRNAME = os.environ.get('BOOKS_DIRNAME', 'books')
+# randomize books
+RANDOMIZE_BOOKS = os.environ.get('RANDOMIZE_BOOKS', '1') == '1'
 
 
 # create directory for books
@@ -108,6 +111,11 @@ def main():
     links = get_book_links(URL_EPIC)
 
     books_added_count = 0
+
+    if RANDOMIZE_BOOKS:
+        logging.info('Randomizing books')
+        links = list(links)
+        random.shuffle(links)
 
     for book_link in links:
         # break if BOOK_AMOUNT books were added
