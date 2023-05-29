@@ -92,7 +92,7 @@ def transform_content(content: str):
     content = '\n'.join(content.split('\n')[:-LINES_TO_REMOVE])
 
     # make first letter of every sentence uppercase
-    content = '\n'.join([line.capitalize() for line in content.split('\n')])
+    content = '\n'.join([line[0].upper() + line[1:] for line in content.split('\n')])
 
     return content
 
