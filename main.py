@@ -12,7 +12,7 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 # URLs to get books from
-URL_EPIC = 'https://wolnelektury.pl/katalog/rodzaj/epika/'
+URL_EPIC = 'https://wolnelektury.pl/katalog/rodzaj/epika/?page='
 URL_TXT = 'https://wolnelektury.pl/media/book/txt/'
 
 
@@ -111,7 +111,16 @@ def transform_content(content: str):
 
 def main():
     create_book_directory()
-    links = get_book_links(URL_EPIC)
+    
+    links = []
+
+    for page in range(1, 100):
+        r = requests.get(URL_EPIC + str(page))
+
+        if r.status_code == 404:
+            break
+
+        links.extend(get_book_links(URL_EPIC + str(page)))
 
     books_added_count = 0
 
